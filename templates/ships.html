@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Ships{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/CSS/ships.css">
+
+<div class="container">
+  <h1>Ships and Ratings</h1>
+
+<head>
+	<title>Cruise Ships</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		th, td {
+			padding: 8px;
+			text-align: left;
+			border-bottom: 1px solid #ddd;
+		}
+		th {
+			background-color: #f2f2f2;
+		}
+	</style>
+</head>
+<body>
+<table>
+	<thead>
+		<tr>
+			<th>Cruise Line</th>
+			<th>Ship</th>
+			<th>Built</th>
+			<th>Refurb.</th>
+			<th>Passengers</th>
+			<th>Rating</th>
+		</tr>
+	</thead>
+	<tbody>
+    {%  for p in products %}
+		<tr>
+			<td>{{ p.product_cruise_line }}</td>
+			<td>{{ p.product_name}}</td>
+			<td>{{ p.product_year_built }}</td>
+			<td></td>
+			<td>{{ p.product_capacity }}</td>
+			<td>{{ p.product_rating }}</td>
+		</tr>
+    {% endfor %}
+
+	</tbody>
+</table>
+</body>
+  </div>
+{% endblock %} <!-- content -->

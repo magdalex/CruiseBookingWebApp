@@ -1,0 +1,36 @@
+#withAcc, #withoutAcc, #info {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+#loginButton {
+  display: block;
+  margin: 10px auto 0;
+  width: 257px;
+  height: 30px;
+  border: 1.5px groove #EEEDE7;
+}
+
+#email, #password {
+  display: block;
+  margin: 10px auto 0;
+  width: 250px;
+  height: 30px;
+  color: grey;
+  border: 1.5px groove #EEEDE7;
+}
+
+#loginButton:hover {
+  background-color: #0B346E;
+  color: #fbe251;
+  font-weight: bold;
+}
+
+#create {
+  color: black;
+}
+
+#create:hover {
+  color: #268785;
+  font-weight: bold;
+}

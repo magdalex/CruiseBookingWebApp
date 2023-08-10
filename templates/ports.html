@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Ports{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/CSS/ports.css">
+<script src="/static/js/filter.js"></script>
+<div class="container">
+  <h1>Departure Ports</h1>
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <h3>North America</h3>
+      <a href={{ url_for('product_list_filter',input='Miami') }}>Miami, FL</a><br>
+      <a href={{ url_for('product_list_filter',input='Port Canaveral') }}>Port Canaveral, FL</a><br>
+      <a href={{ url_for('product_list_filter',input='Galveston') }}>Galveston, TX</a><br>
+      <a href={{ url_for('product_list_filter',input='New York') }}>New York, NY</a><br>
+      <a href={{ url_for('product_list_filter',input='Seattle') }}>Seattle, WA</a><br>
+      <a href={{ url_for('product_list_filter',input='Los Angeles') }}>Los Angeles, CA</a><br>
+      <a href={{ url_for('product_list_filter',input='San Francisco') }}>San Francisco, CA</a><br>
+      <a href={{ url_for('product_list_filter',input='Fort Lauderdale') }}>Fort Lauderdale, FL</a><br>
+      <a href={{ url_for('product_list_filter',input='Vancouver') }}>Vancouver, BC</a><br>
+    </div>
+    <div class="col-12 col-md-6">
+      <h3>South America</h3>
+      <a href={{ url_for('product_list_filter',input='Buenos Aires') }}>Buenos Aires, Argentina</a><br>
+      <a href={{ url_for('product_list_filter',input='Rio de Janeiro') }}>Rio de Janeiro, Brazil</a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <h3>Europe</h3>
+      <a href={{ url_for('product_list_filter',input='Barcelona') }}>Barcelona, Spain</a><br>
+      <a href={{ url_for('product_list_filter',input='Civitavecchia') }}>Civitavecchia, Italy</a><br>
+      <a href={{ url_for('product_list_filter',input='Amsterdam') }}>Amsterdam, Netherlands</a><br>
+    </div>
+    <div class="col-12 col-md-6">
+      <h3>Asia-Pacific</h3>
+      <a href={{ url_for('product_list_filter',input='Sydney') }}>Sydney, Australia</a><br>
+      <a href={{ url_for('product_list_filter',input='Singapore') }}>Singapore, Singapore</a><br>
+      <a href={{ url_for('product_list_filter',input='Tokyo') }}>Tokyo, Japan</a><br>
+      <a href={{ url_for('product_list_filter',input='Dubai') }}>Dubai, UAE</a><br>
+    </div>
+  </div>
+</div>
+{% endblock %} <!-- content -->

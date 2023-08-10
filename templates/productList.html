@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - ProductList{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="/static/CSS/productList.css">
+    <script src="/static/js/filter.js"></script>
+    <div class="container">
+        <div class="row" id="filter">
+            <div class="col-12">
+                <form class="w-100">
+                    <div class="form-row filter-grid d-flex">
+                        <select data-filter="make" class="filter-make filter form-control filter-element">
+                            <option value="">From Month</option>
+                            <option value="">Apr 2023</option>
+                            <option value="">May 2023</option>
+                            <option value="">Jun 2023</option>
+                            <option value="">Jul 2023</option>
+                            <option value="">Aug 2023</option>
+                            <option value="">Sep 2023</option>
+                            <option value="">Oct 2023</option>
+                            <option value="">Nov 2023</option>
+                            <option value="">Dec 2023</option>
+                            <option value="">Jan 2024</option>
+                            <option value="">Feb 2024</option>
+                            <option value="">Mar 2024</option>
+                            <option value="">Show all</option>
+                        </select>
+                        <select data-filter="make" class="filter-make filter form-control filter-element">
+                            <option value="">To Month</option>
+                            <option value="">Apr 2023</option>
+                            <option value="">May 2023</option>
+                            <option value="">Jun 2023</option>
+                            <option value="">Jul 2023</option>
+                            <option value="">Aug 2023</option>
+                            <option value="">Sep 2023</option>
+                            <option value="">Oct 2023</option>
+                            <option value="">Nov 2023</option>
+                            <option value="">Dec 2023</option>
+                            <option value="">Jan 2024</option>
+                            <option value="">Feb 2024</option>
+                            <option value="">Mar 2024</option>
+                            <option value="">Show all</option>
+                        </select>
+                        <select id="regions" data-filter="regions"
+                                class="filter-region filter form-control filter-element">
+                            <option value="">Select Regions</option>
+                            <option value="North America">North America</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Caribbean">Caribbean</option>
+                            <option value="Europe and Mediterranean">Europe and Mediterranean</option>
+                            <option value="Africa">Africa</option>
+                            <option value="South America">South America</option>
+                            <option value="Alaska">Alaska</option>
+                            <option value="Asia">Asia</option>
+                            <option value="Hawaii and South Pacific">Hawaii and South Pacific</option>
+                            <option value="Australia and New Zealand">Australia and New Zealand</option>
+                            <option value="Transatlantic">Transatlantic</option>
+                            <option value="Panama Canal">Panama Canal</option>
+                            <option value="Bahamas">Bahamas</option>
+                            <option value="Bermuda">Bermuda</option>
+                            <option value="">All Regions</option>
+                        </select>
+                        <select data-filter="model" class="filter-model filter form-control filter-element">
+                            <option value="">Select Cruise Lines</option>
+                            <option value="">Celebrity Cruises</option>
+                            <option value="">Disney Cruises</option>
+                            <option value="">Carnival Cruise Line</option>
+                            <option value="">Royal Caribbean</option>
+                            <option value="">Norwegian Cruise Line</option>
+                            <option value="">MSC Cruises</option>
+                            <option value="">Holland America Cruise Line</option>
+                            <option value="">Cunard</option>
+                            <option value="">Virgin Voyages</option>
+                            <option value="">Viking Ocean Cruises</option>
+                            <option value="">Costa</option>
+                            <option value="">Seabourn</option>
+                            <option value="">Silversea</option>
+                            <option value="">All Cruise Lines</option>
+                        </select>
+                        <select id="ports" data-filter="ports" class="filter-port filter form-control filter-element">
+                            <option value="">Select Departure Ports</option>
+                            <option value="Miami, FL">Miami, FL</option>
+                            <option value="Port Canaveral, FL">Port Canaveral, FL</option>
+                            <option value="Galveston, TX">Galveston, TX</option>
+                            <option value="New York, NY">New York, NY</option>
+                            <option value="Seattle, WA">Seattle, WA</option>
+                            <option value="Los Angeles, CA">Los Angeles, CA</option>
+                            <option value="San Francisco, CA">San Francisco, CA</option>
+                            <option value="Fort Lauderdale, FL">Fort Lauderdale, FL</option>
+                            <option value="Barcelona, Spain">Barcelona, Spain</option>
+                            <option value="Civitavecchia, Italy">Civitavecchia, Italy</option>
+                            <option value="Amsterdam, Netherlands">Amsterdam, Netherlands</option>
+                            <option value="Dubai, UAE">Dubai, UAE</option>
+                            <option value="Sydney, Australia">Sydney, Australia</option>
+                            <option value="Vancouver, BC">Vancouver, BC</option>
+                            <option value="Singapore, Singapore">Singapore, Singapore</option>
+                            <option value="Tokyo, Japan">Tokyo, Japan</option>
+                            <option value="Hong Kong, China">Hong Kong, China</option>
+                            <option value="Buenos Aires, Argentina">Buenos Aires, Argentina</option>
+                            <option value="Rio de Janeiro, Brazil">Rio de Janeiro, Brazil</option>
+                            <option value="">All Departure Ports</option>
+                        </select>
+                        <select data-filter="type" class="filter-type filter form-control filter-element">
+                            <option value="">Number of nights</option>
+                            <option value="">3 - 7 Nights</option>
+                            <option value="">8 - 13 Nights</option>
+                            <option value="">14+ Nights</option>
+                            <option value="">21+ Nights</option>
+                            <option value="">Show All</option>
+                        </select>
+                        <select data-filter="type" class="filter-type filter form-control filter-element">
+                            <option value="">Select Price Range</option>
+                            <option value="">$0 - $500</option>
+                            <option value="">$500 - $1000</option>
+                            <option value="">$1000 - $2000</option>
+                            <option value="">$2000+</option>
+                            <option value="">Show All</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary filter-element">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="sort-section">
+        <div class="sort-label">Sorted by:</div>
+        <div class="sort-buttons">
+            <button class="sort-btn">Number of Nights&#9650;</button>
+            <button class="sort-btn">Number of Nights&#9660;</button>
+            <button class="sort-btn">Price&#9650;</button>
+            <button class="sort-btn">Price&#9660;</button>
+            <button class="sort-btn">Ship Rating&#9650;</button>
+            <button class="sort-btn">Ship Rating&#9660;</button>
+            <button class="sort-btn">On Sale</button>
+        </div>
+    </div>
+
+    <!-- product listing -->
+    {% for p in allproducts %}
+
+        <a href={{ url_for('product',id=p.product_id) }}>
+            <div class="product-container">
+                <div class="text-section">
+                    <p class="line1">{{ p.product_name }}</p>
+                    <p class="line2">{{ p.product_number_of_nights }}-night Cruise Experience</p>
+                    <p class="line3">From</p>
+                    <p class="line4">CA ${{p.product_price }}</p>
+                    <p class="line5">per person</p>
+                    <button class="check-price-button">Check Price and Availability</button>
+                </div>
+                <div class="image-section">
+                    <img src="/static/images/product/p{{ p.product_id }}.jpg" alt="Product Image">
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+    <div class="page-navigator">
+        <div class="page-number">1/15</div>
+        <button class="next-page-btn">Next Page</button>
+    </div>
+
+{% endblock %} <!-- content -->

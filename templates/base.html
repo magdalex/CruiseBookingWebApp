@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head Section -->
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/CSS/base.css">
+    <title>Cruise Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-OgVRvuATP1z7JjHLkuOUfsaxf4g4Yw2Q0wN14VgUivN0UksdQRVbXTpU7IksdMgC"
+          crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+            integrity="sha384-vHfX9hT1W/STOPOX9QxC5d7oW/I2Q5ch5V5mj5yo+3NOVW1/fqyzM7VJYmFvRf7B"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOUfsaxf4g4Yw2Q0wN14VgUivN0UksdQRVbXTpU7IksdMgC"
+            crossorigin="anonymous"></script>
+    <script src="/static/JS/base.js"></script>
+</head>
+
+<!-- Body Section -->
+<body>
+<header>
+    <div class="header-top-massege" id="header">
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Default Welcome Message </p>
+    </div>
+
+    <div class="header-menu" id="headmenu">
+        {% if current_user.is_authenticated %}
+            <a href={{ url_for('account') }}>
+                <img src="/static/images/logos/account.png" alt="my account" id="account">Account
+            </a>
+            <a href={{ url_for('logout') }}>
+                <img src="/static/images/logos/logout.png" alt="logout" id="logout">Logout
+            </a>
+        {% else %}
+            <a href={{ url_for('login') }}>
+                <img src="/static/images/logos/account.png" alt="login" id="login">Login
+            </a>
+        {% endif %}
+        {% if current_user.is_authenticated %} <!-- ensures user is logged in -->
+
+            <a href={{ url_for('cart') }}>
+        {% endif %}
+        <img src="/static/images/logos/cart.png" alt="my cart" id="cart">Cart
+        </a>
+        <a href={{ url_for('help') }}>
+            <img src="/static/images/logos/qa.jpg" alt="help" id="qa">Help
+        </a>
+    </div>
+    <a href={{ url_for('index') }}>
+        <img src="/static/images/logos/logo.jpg" alt="Logo" id="logo">
+    </a>
+    <span id="title">Cruise Website</span>
+    <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light">
+        <div id="links">
+            <a href="/"><b>Home</b></a>
+            <a href={{ url_for('lines') }}><b>Cruise Lines</b></a>
+            <a href="/ships"><b>Ships & Ratings</b></a>
+            <a href="/regions"><b>Regions</b></a>
+            <a href="/ports"><b>Departure Ports</b></a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    {% block content %}
+        <div class="slideshow-wrapper">
+            <div class="slideshow-container">
+                <a href={{ url_for('product',id=1) }}><img src="/static/images/ad/c1.jpg"></a>
+                <a href={{ url_for('product',id=3) }}><img src="/static/images/ad/c2.jpeg"></a>
+                <a href={{ url_for('product',id=5) }}/static/images/ad/c3.jpg"></a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row" id="filter">
+                <div class="col-12">
+                    <form class="w-100">
+                        <div class="form-row filter-grid d-flex">
+                            <select data-filter="make" class="filter-make filter form-control filter-element">
+                                <option value="">From Month</option>
+                                <option value="">Apr 2023</option>
+                                <option value="">May 2023</option>
+                                <option value="">Jun 2023</option>
+                                <option value="">Jul 2023</option>
+                                <option value="">Aug 2023</option>
+                                <option value="">Sep 2023</option>
+                                <option value="">Oct 2023</option>
+                                <option value="">Nov 2023</option>
+                                <option value="">Dec 2023</option>
+                                <option value="">Jan 2024</option>
+                                <option value="">Feb 2024</option>
+                                <option value="">Mar 2024</option>
+                                <option value="">Show all</option>
+                            </select>
+                            <select data-filter="make" class="filter-make filter form-control filter-element">
+                                <option value="">To Month</option>
+                                <option value="">Apr 2023</option>
+                                <option value="">May 2023</option>
+                                <option value="">Jun 2023</option>
+                                <option value="">Jul 2023</option>
+                                <option value="">Aug 2023</option>
+                                <option value="">Sep 2023</option>
+                                <option value="">Oct 2023</option>
+                                <option value="">Nov 2023</option>
+                                <option value="">Dec 2023</option>
+                                <option value="">Jan 2024</option>
+                                <option value="">Feb 2024</option>
+                                <option value="">Mar 2024</option>
+                                <option value="">Show all</option>
+                            </select>
+                            <select data-filter="make" class="filter-make filter form-control filter-element">
+                                <option value="">Select Regions</option>
+                                <option value="">North America</option>
+                                <option value="">Mexico</option>
+                                <option value="">Caribbean</option>
+                                <option value="">Europe and Mediterranean</option>
+                                <option value="">Africa</option>
+                                <option value="">South America</option>
+                                <option value="">Alaska</option>
+                                <option value="">Asia</option>
+                                <option value="">Hawaii and South Pacific</option>
+                                <option value="">Australia and New Zealand</option>
+                                <option value="">Transatlantic</option>
+                                <option value="">Panama Canal</option>
+                                <option value="">All Regions</option>
+                            </select>
+                            <select data-filter="model" class="filter-model filter form-control filter-element">
+                                <option value="">Select Cruise Lines</option>
+                                <option value="">Celebrity Cruises</option>
+                                <option value="">Disney Cruises</option>
+                                <option value="">Carnival Cruise Line</option>
+                                <option value="">Royal Caribbean</option>
+                                <option value="">Norwegian Cruise Line</option>
+                                <option value="">MSC Cruises</option>
+                                <option value="">Holland America Cruise Line</option>
+                                <option value="">Cunard</option>
+                                <option value="">Virgin Voyages</option>
+                                <option value="">Viking Ocean Cruises</option>
+                                <option value="">Costa</option>
+                                <option value="">Seabourn</option>
+                                <option value="">Silversea</option>
+                                <option value="">All Cruise Lines</option>
+                            </select>
+                            <select data-filter="model" class="filter-model filter form-control filter-element">
+                                <option value="">Select Departure Ports</option>
+                                <option value="">Miami, FL</option>
+                                <option value="">Port Canaveral, FL</option>
+                                <option value="">Galveston, TX</option>
+                                <option value="">New York, NY</option>
+                                <option value="">Seattle, WA</option>
+                                <option value="">Los Angeles, CA</option>
+                                <option value="">San Francisco, CA</option>
+                                <option value="">Fort Lauderdale, FL</option>
+                                <option value="">Barcelona, Spain</option>
+                                <option value="">Civitavecchia, Italy</option>
+                                <option value="">Amsterdam, Netherlands</option>
+                                <option value="">Dubai, UAE</option>
+                                <option value="">Sydney, Australia</option>
+                                <option value="">Vancouver, BC</option>
+                                <option value="">Singapore, Singapore</option>
+                                <option value="">Tokyo, Japan</option>
+                                <option value="">Hong Kong, China</option>
+                                <option value="">Buenos Aires, Argentina</option>
+                                <option value="">Rio de Janeiro, Brazil</option>
+                                <option value="">All Departure Ports</option>
+                            </select>
+                            <select data-filter="type" class="filter-type filter form-control filter-element">
+                                <option value="">Number of nights</option>
+                                <option value="">3 - 7 Nights</option>
+                                <option value="">8 - 13 Nights</option>
+                                <option value="">14+ Nights</option>
+                                <option value="">21+ Nights</option>
+                                <option value="">Show All</option>
+                            </select>
+                            <select data-filter="type" class="filter-type filter form-control filter-element">
+                                <option value="">Select Price Range</option>
+                                <option value="">$0 - $500</option>
+                                <option value="">$500 - $1000</option>
+                                <option value="">$1000 - $2000</option>
+                                <option value="">$2000+</option>
+                                <option value="">Show All</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary filter-element">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% set num_rows = (allproducts|length + 2) // 3 %}
+        {% set num_rows = min(num_rows, 3) %} {# Limit rows to 3, to display only 9 products #}
+        {% for row_num in range(num_rows) %}
+            <div class="product-row">
+                {% for prod in allproducts[row_num * 3:(row_num + 1) * 3] %}
+                    <div class="product-item">
+                        <a href="product/{{ prod.product_id }}">
+                            <img src="/static/images/product/p{{ prod.product_id }}.jpg"
+                                 alt="Product {{ prod.product_id }}">
+                        </a>
+                        <p>
+                            <a href="#">
+                                {{ prod.product_number_of_nights }}-Night Sailing, {{ prod.product_name }}, Starting at ${{ prod.product_price }}
+                            </a>
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        <div class="view-more">
+            <a href="productList">
+                <button type="button" class="view-more-btn">View More</button>
+            </a>
+        </div>
+
+    {% endblock %}
+</main>
+
+<footer class="bg-dark text-white mt-7 p-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <h4>About Cruising</h4>
+                <ul>
+                    <li><a href="#">Age Requirement</a></li>
+                    <li><a href="#">Air/Sea</a></li>
+                    <li><a href="#">Cruise Articles</a></li>
+                    <li><a href="#">Dining</a></li>
+                    <li><a href="#">Deck Plans</a></li>
+                    <li><a href="#">Dress Codes</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">First-Time Cruisers</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h4>About Cruising (cont.)</h4>
+                <ul>
+                    <li><a href="#">Insurance</a></li>
+                    <li><a href="#">Packing</a></li>
+                    <li><a href="#">Passports</a></li>
+                    <li><a href="#">Payments and Refunds</a></li>
+                    <li><a href="#">Smoking Policies</a></li>
+                    <li><a href="#">Tipping</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h4>Company Info</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Corporate Officers</a></li>
+                    <li><a href="reviews">Our Reviews</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

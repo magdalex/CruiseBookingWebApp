@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="/static/CSS/account.css">
+
+    <div id="accountInfo">
+
+        <fieldset id="info">
+            <legend>Account information</legend>
+            <p>First Name: {{ current_user.first_name }}</p>
+            <p>Last Name: {{ current_user.last_name }}</p>
+            <p>Phone Number: {{ current_user.phone }}</p>
+            <p>Email Address: {{ current_user.id }}</p>
+        </fieldset>
+
+        {#        TODO: Dennis, everything beneath his line doesn't work #}
+        <form action="/account" method="post">
+            <fieldset id="payment">
+                <legend>Card Information</legend>
+                <p>Card Number: {{ card_number }}</p>
+                <p>Card Issuer: {{ card_issuer }}</p>
+                <p>Cardholder Name: {{ card_name }}</p>
+                <p>Card expiry month: {{ card_expiry_month }}</p>
+                <p>Card expiry year: {{ card_expiry_year }}</p>
+            </fieldset>
+
+            <!--		for loop here to generate as many orders as there are connected to account entity -- backend integration for later-->
+            <fieldset id="order-history">
+                <legend>Order History</legend>
+                {% for p in purchases %}
+
+                        <label class="labelBlock">Cruise: {{ p.purchase_name }} </label>
+                        <label class="labelBlock">Date: {{ p.purchase_date }} </label>
+                        <label class="labelBlock">Price: ${{ p.purchase_price }} </label>
+                        <label class="labelBlock">Quantity: {{ p.purchase_quantity }} </label>
+                    ------------------------------------------------------------------------
+                {% endfor %}
+            </fieldset>
+
+        </form>
+    </div>
+{% endblock %}

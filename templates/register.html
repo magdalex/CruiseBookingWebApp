@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - register{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="/static/CSS/register.css">
+
+    <div id="withoutAcc">
+	<p><b>Register</b></p>
+    <p>Please input the following information:</p>
+
+	<form action="/register" method="post">
+        {{ form.csrf_token }}
+		<fieldset id="info">
+			    <legend>Register information</legend>
+                <label class="labelBlock">First Name:<span>*</span>
+                    {{ form.first_name }}
+				</label>
+				<label class="labelBlock">Last Name:<span>*</span>
+                    {{ form.last_name }}
+				</label>
+				<label class="labelBlock">Phone:<span>*</span>
+                    {{ form.phone }}
+				</label>
+				<label class="labelBlock">Email: <span>*</span>
+                    {{ form.email }}
+				</label>
+                <label class="labelBlock">Password:<span>*</span>
+                    {{ form.password }}
+				</label>
+                    <label class="labelBlock">Confirm Password:<span>*</span>
+                    {{ form.password2 }}
+				</label>
+		</fieldset>
+
+		<fieldset id="payment">
+			    <legend>Payment Information</legend>
+				<label class="labelBlock">Credit Card<span>*</span>
+                    {{ form.credit_card }}
+				</label>
+				<label class="labelBlock">Cardholder Name<span>*</span>
+                    {{ form.cardholder_name }}
+				</label>
+				<label class="labelBlock">Card Number<span>*</span>
+                    {{ form.card_number }}
+				</label>
+				<label class="labelBlock">Expiration Date<span>*</span>
+                    {{ form.expiration_month }}
+                    {{ form.expiration_year }}
+                </label>
+				<label class="labelBlock">CVV<span>*</span>
+                    {{ form.cvv }}
+				</label>
+		</fieldset>
+		<fieldset id="buttons">
+            {{ form.submit }}
+		    <input type="reset" value="Reset" />
+        </fieldset>
+	</form>
+    </div>
+
+
+	<div id="withAcc">
+        <p>Do you have an account already? <a href="login" id="loginButton"><b>Login</b></a></p>
+    </div>
+
+{% endblock %} <!-- content -->

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Regions{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/CSS/regions.css">
+<script src="/static/js/filter.js"></script>
+<div class="container">
+  <h1>Regions</h1>
+  <img src="/static/images/other/map.png" usemap="#region-links">
+  <map name="region-links">
+    <area shape="rect" coords="50,50,100,150" href={{ url_for('product_list_region',region='Asia') }}>
+    <area shape="rect" coords="220,40,300,70" href={{ url_for('product_list_region',region='Alaska') }}>
+    <area shape="rect" coords="120,220,300,250" href={{ url_for('product_list_region',region='Hawaii and South Pacific') }}>
+    <area shape="rect" coords="140,380,350,410" href={{ url_for('product_list_region',region='Australia and New Zealand') }}>
+    <area shape="rect" coords="450,120,550,150" href={{ url_for('product_list_region',region='North America') }}>
+    <area shape="rect" coords="450,220,520,250" href={{ url_for('product_list_region',region='Mexico') }}>
+    <area shape="rect" coords="480,270,580,300" href={{ url_for('product_list_region',region='Panama Canal') }}>
+    <area shape="rect" coords="580,190,650,210" href={{ url_for('product_list_region',region='Bahamas') }}>
+    <area shape="rect" coords="640,150,710,180" href={{ url_for('product_list_region',region='Bermuda') }}>
+    <area shape="rect" coords="590,265,679,295" href={{ url_for('product_list_region',region='Caribbean') }}>
+    <area shape="rect" coords="640,330,740,360" href={{ url_for('product_list_region',region='South America') }}>
+    <area shape="rect" coords="700,50,800,80" href={{ url_for('product_list_region',region='Transatlantic') }}>
+    <area shape="rect" coords="730,110,880,140" href={{ url_for('product_list_region',region='Europe and Mediterranean') }}>
+    <area shape="rect" coords="860,220,910,250" href={{ url_for('product_list_region',region='Africa') }}>
+  </map>
+</div>
+{% endblock %} <!-- content -->

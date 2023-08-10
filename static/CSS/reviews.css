@@ -1,0 +1,52 @@
+.container {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.questions {
+  font-family: sans-serif;
+}
+
+.card {
+  font-family: sans-serif;
+  background-color: whitesmoke;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.card-review {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.card-name {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-location {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.card-date {
+  color: dimgrey;
+  font-size: 14px;
+  margin: 0;
+}
+
+
+h1 {
+  font-family: "monospace", monospace;
+  font-size: 18px;
+}
+
+.intro {
+  font-family: sans-serif;
+  font-size: 15px;
+}

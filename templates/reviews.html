@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Our Reviews{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="/static/CSS/reviews.css">
+    <div class="container">
+        <h1>Our Reviews</h1>
+        <p class="intro">We been selling cruises and satisfying customers since 1984.
+          We have more cruise counselors under one roof than any other company in the entire world.
+          Fast, friendly and professional, they are eager to help you find the perfect cruise at the right price.
+          Read why our customers keep coming back!</p>
+        {% for item in news_items %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <p class="card-review">{{ item['Content'] }}</p>
+                <p class="card-name">{{ item['Name'] }}</p>
+                <p class="card-location">{{ item['Location'] }}</p>
+                <p class="card-date mb-2 text-muted">{{ item['Date'] }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %} <!-- content -->

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Lines{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/CSS/lines.css">
+<div class="container">
+  <h1>Cruise Lines</h1>
+</div>
+
+<div class="line-list">
+  {% for line in line_list %}
+  <div class="line-container">
+    <a href="{{ line[1] | replace('_', ' ') }}">
+      <img src="{{ line_images[line[0]] }}" alt="{{ line[0] }} cruise line" id="lineBanners">
+    </a>
+    <p class="line-intro">{{ line_intros[line[0]] }}</p>
+    <div class="line-details">
+      <h2>{{ line[0] }}</h2>
+      <p><a href="{{ line[1] | replace('_', ' ') }}" id="lineDetail">Learn More</a></p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %} <!-- content -->

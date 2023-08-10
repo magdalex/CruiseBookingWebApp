@@ -1,0 +1,11 @@
+.container {
+    width: 800px;
+    font-family: sans-serif;
+    margin: auto auto 20px;
+}
+
+h1 {
+  margin-top: 20px;
+  font-family: "monospace", monospace;
+  font-size: 25px;
+}

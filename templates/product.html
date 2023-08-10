@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/CSS/product.css">
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Ship {{ index + 1 }}<br>{{ allproducts[index].product_name}}</h3>
+            <h6 class="card-subtitle"></h6>
+            <div class="row">
+<!--                TODO: slight problems displaying the picture at the top of the description -->
+<!--                <div class="col-lg-5 col-md-5 col-sm-6">-->
+<!--                    <div class="shipPicture"><img src="/static/images/product/p1.jpg" alt="Product 1"></div>-->
+<!--                </div>-->
+                <div class="description">
+                    <h4 class="title">Ship description</h4>
+                    <p>
+                    {{ allproducts[index].product_description }}
+                    </p>
+                    <h2 class="mt-5">
+                        ${{ allproducts[index].product_price}}<small class="text-success">  (10% off)</small>
+                    </h2>
+
+                    <a href="/add_to_cart/{{ index + 1 }}"> <!-- add to cart based on index -->
+                    <button class="btn btn-primary btn-rounded">Add to Cart</button>
+                    </a>
+                    <h3 class="title">Key Highlights</h3>
+                    <ul class="list-unstyled">
+                        <li>Luxurious Accommodations</li>
+                        <li>World-Class Dining</li>
+                        <li>Onboard Entertainment</li>
+                    </ul>
+                </div>
+                <div class="table-general-info">
+                    <h3 class="title">General Info</h3>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-product">
+                            <tbody>
+                                <tr>
+                                    <td width="390">Cruise Line</td>
+                                    <td>Cruise Line 1</td>
+                                </tr>
+                                <tr>
+                                    <td>Year built</td>
+                                    <td>2005</td>
+                                </tr>
+                                <tr>
+                                    <td>Length</td>
+                                    <td>268 feet</td>
+                                </tr>
+                                <tr>
+                                    <td>Passenger capacity</td>
+                                    <td>175</td>
+                                </tr>
+                                <tr>
+                                    <td>Crew size</td>
+                                    <td>50</td>
+                                </tr>
+                                <tr>
+                                    <td>Number of inside cabins</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>Number of outside cabins</td>
+                                    <td>90</td>
+                                </tr>
+                                <tr>
+                                    <td>Number of suites</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>Maximum room occupancy</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>Age restrictions</td>
+                                    <td>Family-friendly</td>
+                                </tr>
+                                <tr>
+                                    <td>Dining options</td>
+                                    <td>[...]</td>
+                                </tr>
+                                <tr>
+                                    <td>Onboard currency</td>
+                                    <td>USD</td>
+                                </tr>
+                                <tr>
+                                    <td>Bars/Lounges</td>
+                                    <td>Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>Casino</td>
+                                    <td>No</td>
+                                </tr>
+                                <tr>
+                                    <td>More features to be listed...</td>
+                                    <td>...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

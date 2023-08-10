@@ -1,0 +1,17 @@
+.container {
+    width: 1200px;
+    font-family: sans-serif;
+    margin: auto auto 10px;
+}
+
+.container img{
+    width: 1200px;
+    font-family: sans-serif;
+    margin: auto auto 10px;
+}
+
+h1 {
+  margin-top: 20px;
+  font-family: "monospace", monospace;
+  font-size: 25px;
+}

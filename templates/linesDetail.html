@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Line Detail{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" type="text/css" href="/static/CSS/linesDetail.css">
+  <script src="/static/JS/base.js"></script>
+  <script src="/static/JS/linesDetail.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<div class="all">
+    <div class="top-image">
+      <img src="{{ detail_images[line_name][0] }}" alt="{{ line_name }} logo">
+    </div>
+  <!-- Introduction section -->
+<div class="intro-section">
+  <div class="intro-image-slides">
+    <div class="slideshow-wrapper">
+      <div class="slideshow-container">
+        {% for image in detail_images[line_name] %}
+        <img src="{{ image }}" alt="{{ line_name }} slide">
+        {% endfor %}
+      </div>
+      <!-- Add the previous and next buttons here -->
+      <a class="prev">&#10094;</a>
+      <a class="next">&#10095;</a>
+    </div>
+  </div>
+  <div class="intro-paragraphs">
+    {% for paragraph in line_intro.split('\n') %}
+    <p>{{ paragraph }}</p>
+    {% endfor %}
+  </div>
+</div>
+
+  <!-- Tab section -->
+  <div class="tab-section">
+    <div class="tab-buttons">
+      <button class="tab-button active" data-tab="tab1">Insurance</button>
+      <button class="tab-button" data-tab="tab2">Payment & Refunds</button>
+      <button class="tab-button" data-tab="tab3">Other information</button>
+    </div>
+    <div class="tab-content">
+      <div id="tab1" class="tab-pane active">
+        <p>{{ line_detail1 }}</p>
+      </div>
+      <div id="tab2" class="tab-pane">
+        <p>{{ line_detail2 }}</p>
+      </div>
+      <div id="tab3" class="tab-pane">
+        <p>{{ line_detail3 }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} <!-- content -->

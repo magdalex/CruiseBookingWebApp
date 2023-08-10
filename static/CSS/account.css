@@ -1,0 +1,37 @@
+
+fieldset {
+  background-color: #eeeeee;
+  margin: 10px auto;
+  width: 800px;
+  padding: 10px;
+}
+
+label {
+  display: block;
+  margin: 10px;
+}
+
+#buttons input[type="submit"], #buttons input[type="reset"] {
+  margin-right: 20px;
+  width: 100PX;
+  height: 25px;
+}
+
+#buttons input:hover {
+  background-color: #0B346E;
+  color: #fbe251;
+  font-weight: bold;
+}
+
+#creditCard {
+  height: 25px;
+}
+
+#loginButton {
+  color: black;
+}
+
+#loginButton:hover {
+  color: #268785;
+  font-weight: bold;
+}

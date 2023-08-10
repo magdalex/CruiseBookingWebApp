@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing Cart</title>
+</head>
+<body>
+
+<dl>
+    <dt>email</dt>
+    <dd>{{ current_user.email }}</dd>
+    <dt>phone</dt>
+    <dd>{{ current_user.phone }}</dd>
+    <dt>cart {{ current_user.cart_id }}</dt>
+    <dd>
+        <ol>
+            {% for p in products %}
+                <li>{{ p }}</li>
+            {% endfor %}
+        </ol>
+    </dd>
+</dl>
+</body>
+</html>

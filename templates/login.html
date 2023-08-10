@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - login{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="/static/CSS/login.css">
+    <div id="withAcc">
+	   <p><b>Login</b></p>
+       <p>Please enter your e-mail and password:</p>
+    </div>
+
+    <form action="/login" method="post">
+    {{ form.csrf_token }}
+        <div id="info">
+    	    <label class="labelBlock">
+{#    	        <input type="text" id="email" value="Email"/>#}
+                {{ form.email }}
+    	    </label>
+    	    <label class="labelBlock">
+{#    	        <input type="text" id="password" value="Password"/>#}
+                {{ form.password }}
+    	    </label>
+{#    		<input type="submit" id="loginButton" value="LOGIN" />#}
+            {{ form.submit }}
+        </div>
+    </form>
+
+	<div id="withoutAcc">
+        <p>Don't have an account? <a href="register" id= "create"><b>Create one</b></a></p>
+    </div>
+{% endblock %} <!-- content -->

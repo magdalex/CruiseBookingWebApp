@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/CSS/cart.css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+{#    TODO: Make cart pull relevant, accurate information and add up the total properly #}
+<div class="container">
+    <div class="row">
+        <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <address>
+                        <strong>Cruise Website</strong>
+                        <br>
+                        267 Yeehaw Blvd
+                        <br>
+                        Montreal, QC
+                        <br>
+                        Phone: (514) 555-5555
+                    </address>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                    <p>
+                        <em>Date: {{ date }}</em>
+                    </p>
+                    <p>
+                        <em>Receipt #: 845729</em>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center">
+                    <h1>Order Summary</h1>
+                </div>
+                    <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Amount</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {%  for p in products %}
+                        <tr>
+                            <td class="col-md-7"><em>{{ p[1] }}</em></td>
+                            <td class="col-md-1" style="text-align: center">{{ p[3] }}</td>
+                            <td class="col-md-2" style="text-align: center">${{ p.product_price }}</td>
+                        </tr>
+                    {% endfor %}
+
+                        <tr>
+                            <td class="text-right">
+                                <p><strong>Subtotal:</strong></p>
+                                <p><strong>Tax:</strong></p>
+                            </td>
+                            <td></td>
+                            <td class="text-center">
+                                <p><strong>${{ total }}</strong></p>
+                                <p><strong>${{ tax_total }}</strong></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-right"><h4><strong>Total:   </strong></h4></td>
+                            <td></td>
+                            <td class="text-center text-danger"><h4><strong>${{ total+tax_total }}</strong></h4></td>
+                        </tr>
+                    </tbody>
+                </table>
+<!--                if statement to see if payment was successful -> successful order page, else -> declined order page -->
+<!--                at the moment, only redirects to existing successful page -->
+                <a href="/orderResult">
+<!--                    pay button with no means of editing card information; will pull the saved card from account  -->
+                    <button type="button" class="btn btn-success btn-lg btn-block">
+                        Pay Now   <span class="glyphicon glyphicon-chevron-right"></span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
